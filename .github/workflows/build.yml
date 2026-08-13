@@ -1,0 +1,29 @@
+name: Build PlayerMenu
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: JDK 21 をセットアップ
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Mavenでビルド
+        run: mvn -B clean package
+
+      - name: 成果物(jar)をアップロード
+        uses: actions/upload-artifact@v4
+        with:
+          name: PlayerMenu
+          path: target/PlayerMenu.jar
