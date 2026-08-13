@@ -71,7 +71,7 @@ public class PlayerMenuPlugin extends JavaPlugin implements CommandExecutor {
                                 Component.text("操作したいカテゴリを選んでください。", NamedTextColor.GRAY)
                         )))
                         .build())
-                .type(DialogType.multiAction(buttons))
+                .type(DialogType.multiAction(buttons).build())
         );
     }
 
@@ -277,7 +277,7 @@ public class PlayerMenuPlugin extends JavaPlugin implements CommandExecutor {
     private Dialog simpleActionDialog(String title, List<ActionButton> buttons) {
         return Dialog.create(builder -> builder.empty()
                 .base(DialogBase.builder(Component.text(title, NamedTextColor.AQUA)).build())
-                .type(DialogType.multiAction(buttons))
+                .type(DialogType.multiAction(buttons).build())
         );
     }
 }
