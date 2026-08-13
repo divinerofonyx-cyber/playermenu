@@ -230,10 +230,8 @@ public class PlayerMenuPlugin extends JavaPlugin implements CommandExecutor {
 
     private Dialog buildServerInfoDialog() {
         List<Player> online = new ArrayList<>(Bukkit.getOnlinePlayers());
-        String playerNames = online.stream().map(Player::getName).collect(Collectors.joining(", "));
-        if (playerNames.isEmpty()) {
-            playerNames = "(オンラインプレイヤーなし)";
-        }
+        final String playerNames = online.isEmpty() ? "(オンラインプレイヤーなし)" : 
+                                   online.stream().map(Player::getName).collect(Collectors.joining(", "));
         double tps = Bukkit.getServer().getTPS()[0];
 
         return Dialog.create(builder -> builder.empty()
