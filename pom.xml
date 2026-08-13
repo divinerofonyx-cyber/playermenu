@@ -10,14 +10,9 @@
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--
-            26.1以降、Paperのバージョン表記が {VERSION}-R0.1-SNAPSHOT から
-            {VERSION}.build.番号 に変わった。
-            [26.1.2.build,) はバージョン範囲指定で「26.1.2の最新ビルドを使う」という意味。
-        -->
         <paper.version>26.1.2.build.74-stable</paper.version>
     </properties>
 
