@@ -230,9 +230,9 @@ public class PlayerMenuPlugin extends JavaPlugin implements CommandExecutor {
 
     private Dialog buildServerInfoDialog() {
         List<Player> online = new ArrayList<>(Bukkit.getOnlinePlayers());
-        String names = online.stream().map(Player::getName).collect(Collectors.joining(", "));
-        if (names.isEmpty()) {
-            names = "(オンラインプレイヤーなし)";
+        String playerNames = online.stream().map(Player::getName).collect(Collectors.joining(", "));
+        if (playerNames.isEmpty()) {
+            playerNames = "(オンラインプレイヤーなし)";
         }
         double tps = Bukkit.getServer().getTPS()[0];
 
@@ -243,7 +243,7 @@ public class PlayerMenuPlugin extends JavaPlugin implements CommandExecutor {
                                         Component.text(String.format("TPS: %.2f", tps), NamedTextColor.YELLOW)
                                 ),
                                 io.papermc.paper.registry.data.dialog.body.DialogBody.plainMessage(
-                                        Component.text("オンライン: " + names, NamedTextColor.WHITE)
+                                        Component.text("オンライン: " + playerNames, NamedTextColor.WHITE)
                                 )
                         ))
                         .build())
